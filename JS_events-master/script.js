@@ -60,3 +60,26 @@ let disable = function(){
 navBar.addEventListener('dblclick', disable)
 console.log(navBar)
 
+
+// Exercice 6
+let cards = document.querySelectorAll(".card");
+
+
+for (let i = 0; i < cards.length; i++) {
+    let viewButton = cards[i].querySelector(".btn-success");
+    console.log("this is the edit button:", viewButton)
+    let cardImage = cards[i].querySelector(".card-img-top");
+    console.log("this is the card image :", cardImage)
+    let cardText = cards[i].querySelector(".card-text");
+    console.log("this is the text :", cardText)
+
+    viewButton.addEventListener("mouseenter", function () {
+        cardImage.style.width = "20%"; 
+        cardText.style.display = "none"; 
+    });
+
+    viewButton.addEventListener("click", function () {
+        cardImage.style.width = ""; 
+        cardText.style.display = ""; 
+    });
+}
