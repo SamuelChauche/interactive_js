@@ -43,3 +43,20 @@ secondeditButton.addEventListener("click", function(){
         }else cardText2.style.color = "black";
 });
 
+//nuclear
+let linkTag = document.querySelector('link[rel="stylesheet"]');
+linkTag.disabled = false;
+
+let navBar = document.querySelector(".collapse.bg-dark")
+console.log ("ceci est la navbar :", navBar)
+
+let disable = function(){
+    if (linkTag.disabled === false){
+        linkTag.disabled = true;
+    }else{ 
+        linkTag.disabled = false;
+    }
+};
+navBar.addEventListener('dblclick', disable)
+console.log(navBar)
+
