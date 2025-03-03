@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a onclick = "menuToggle()" class="menu-btn" href="#">Menu</a>
+    <div class="menu">
+        <ul>
+            <li><a href="#">This is link 1 </a></li>
+            <li><a href="#">This is link 2 </a></li>
+            <li><a href="#">This is link 3 </a></li>
+            <li><a href="#">This is link 4 </a></li>
+            <li><a href="#">This is link 5 </a></li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+    // 1. Find and store the element we want to listen to events on.
+    var face = document.getElementById("face");
+    // 2. Define the function that will respond to the event.
+    var onMouseMove = function(event) {
+        console.log(event);
+        document.getElementById("message").textContent += "mooove ";         var beard = document.createElement("div");
+        beard.className = "beard";
+        document.body.appendChild(beard);
+        beard.style.top = event.clientY + "px";
+        beard.style.left = event.clientX + "px";
+        
+    };
+    // 3. Add the event listener for the element and function
+    face.addEventListener("mousemove", onMouseMove);
+    </script>
+
+
+<script>
+    var catPic = document.getElementById("cat-pic");
+    var onCatClick = function(e) {
+        var stashePic = document.getElementById("mustache-pic");  
+        stashePic.style.top = "100px";
+        stashePic.style.left = "100px";
+    };
+    catPic.addEventListener("click", onCatClick);
+    
+
+
+    var catPic = document.getElementById("cat-pic");
+            var onCatClick = function(e) {
+                var stashePic = document.getElementById("mustache-pic");  
+                
+                // Obtenir les coordonnées du clic par rapport à l'image du chat
+                var rect = catPic.getBoundingClientRect();
+                var clickX = e.clientX - rect.left;
+                var clickY = e.clientY - rect.top;
+                
+                // Ajuster la position de la moustache pour qu'elle soit centrée sur le clic
+                stashePic.style.left = (clickX - stashePic.width / 2) + "px";
+                stashePic.style.top = (clickY - stashePic.height / 2) + "px";
+            };
+            catPic.addEventListener("click", onCatClick);
+</script>
+
+
+
+<script>
+    var libButton = document.getElementById('lib-button');
+    var libIt = function() {
+        var storyDiv = document.getElementById("story");
+        storyDiv.innerHTML = "??Your story here";
+    };
+    libButton.addEventListener('click', libIt);
+    
+</script>
+
+<script>
+    var libButton = document.getElementById('lib-button');
+    var libIt = function() {
+       
+        var noun = document.getElementById("noun").value;
+        var adjective = document.getElementById("adjective").value;
+        var person = document.getElementById("person").value;
+        var story = `Once upon a time, ${person} found a ${adjective} ${noun}. It was the most amazing thing they had ever seen!`;
+        var storyDiv = document.getElementById("story");
+        storyDiv.innerHTML = story;
+    };
+    libButton.addEventListener('click', libIt);
+</script>
